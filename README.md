@@ -1,118 +1,62 @@
-# Author Kit
-For projects that want a few more batteries. Built by the team who brought you da.live and adobe.com.
+# Pfadi Schirmerturm — EDS Demo
 
-## Getting started
+This is a demo website for **Pfadi Schirmerturm**, a scout organization based in Luzern, Switzerland. It was built as a proof-of-concept using the [stardust](https://github.com/adobe-rnd/stardust) design pipeline and deployed on AEM Edge Delivery Services.
 
-### 1. Github
-1. Use this template to make a new repo.
-1. Install [AEM Code Sync](https://da.live/bot).
+**Preview:** https://main--stardust-test--hannessolo.aem.page/
 
-### 2. DA content
-1. Browse to https://da.live/start.
-2. Follow the steps.
+## What this demonstrates
 
-### 3. Local development
-1. Clone your new repo to your computer.
-1. Install the AEM CLI using your terminal: `sudo npm install -g @adobe/aem-cli`
-1. Start the AEM CLI: `aem up`.
-1. Open the `{repo}` folder in your favorite code editor and buil something.
-1. **Recommended:** Install common npm packages like linting and testing: `npm i`.
+The site was generated end-to-end from the live site at [schirmerturm.ch](https://schirmerturm.ch/):
 
-## Features
+1. **Brand extraction** — colors, typography, voice, and motifs extracted from the live site into `stardust/brand-profile.json`
+2. **Briefings** — page intent and copy captured in `stardust/briefings/` for all 12 pages
+3. **Prototypes** — high-fidelity static HTML mockups generated in `stardust/prototypes/`
+4. **EDS implementation** — prototypes translated into EDS blocks and content pushed to DA
 
-### Localization & globalization
-* Language only support - Ex: en, de, hi, ja
-* Region only support - Ex: en-us, en-ca, de-de, de-ch
-* Hybrid support - Ex: en, en-us, de, de-ch, de-at
-* Fragment-based localized 404s
-* Localized Header & Footer
-* Do not translate support (#_dnt)
+## Pages
 
-### Flexible section authoring
-* Optional containers to constrain content
-* Grids: 1-6
-* Columns: 1-12
-* Color scheme: light, dark
-* Gap: xs, s, m, l, xl, xxl
-* Spacing: xs, s, m, l, xl, xxl
-* Background: token / image / color / gradient
+| Page | Path |
+|---|---|
+| Homepage | `/` |
+| Über Pfadi | `/ueber-pfadi` |
+| Stufen (overview) | `/stufen` |
+| Biber (4–6) | `/biber` |
+| Wölfli (6–10) | `/woelfli` |
+| Pfadi (10–15) | `/pfadi-stufe` |
+| Pios (15–17) | `/pios` |
+| Abteilung | `/abteilung` |
+| Fotos | `/fotos` |
+| Kontakt | `/kontakt` |
+| Shop | `/shop` |
+| FAQs | `/faq` |
 
-### Base content
-* Universal buttons w/ extensive styles
-* Images w/ retina breakpoint
-* Color scheme support: light, dark
-* Modern favicon support
-* New window support
-* Deep link support
-* Modal support
+## Blocks
 
-### Header and footer content
-* Brand - First link in header
-* Main Menu - First list in header
-* Actions - Last section of header
-* Menu & mega menu support
-* Disable header/footer via meta props
+Custom blocks built for this site (on top of the author-kit base):
 
-### Scheduled content
-* Schedule content using spreadsheets
+| Block | Description |
+|---|---|
+| `hero` | Extended with text-only gradient mode (no image required) and 5px Scout Orange bottom border |
+| `cards` | New — responsive 3-col card grid with orange hover border and dark/orange CTA |
+| `accordion` | New — FAQ expand/collapse using native `<details>`/`<summary>` |
+| `header` | Extended with dropdown nav support, animated orange underline, and scroll shadow |
 
-### Sidekick & pre-production
-* Quick Edit
-* Extensible plumbing for plugins
-* Schedule simulator
-* Convert production links to relative
+## Brand
 
-### Performance
-* Extensible LCP detection
+- **Accent:** Scout Orange `#FF7F11`
+- **Headings:** Raleway (800/700/600)
+- **Body:** Roboto (400/600)
+- **Background:** white `#FFFFFF`, section tint `#F8F8F8`
 
-### Developer tools
-* Environment detection
-* Extensible logging (console, coralogix, splunk, etc.)
-* Buildless reactive framework support (Lit)
-* Hash utils patterns (#_blank, #_dnt, etc)
-* Modern CSS scoping & nesting
-* AEM Operational Telemetry
+## Local development
 
-### Operations
-* Cloudflare Worker reference implementation
+```bash
+git clone https://github.com/hannessolo/stardust-test.git
+cd stardust-test
+npm install
+aem up
+```
 
-## Patterns
-### Page
-A page is what holds your content. It can be styled using a metadata property called `template` which will load styles that apply to the entire page.
+---
 
-### Section
-A section is a sub-section of your page. It can be styled using a `section-metadata` block. A section will control the layout of blocks.
-
-### Block
-Blocks are children of sections. A block adds visual context to parts of a page.
-
-### Auto Block
-An auto block is a block generated from a pre-defined piece of content. Often times from a link that matches a particular pattern. Link-based auto blocks can be helpful when additional nesting of content is required.
-
-### Default content
-Default content is content that lives outside a block.
-
-## Design System
-
-### Spacing & Gap
-XS, S, M, L, XL, XXL
-
-### Emphasis
-quiet, default, strong, negative
-
-### Buttons
-accent, primary, secondary, negative
-(w/ outline variations)
-
-### Columns
-1 - 12
-
-### Grid
-1 - 6
-
-### Color tokens
-blue, gray, green, magenta, organge, red, purple, yellow
-(w/ 100-900 variations)
-
-### Color schemes
-light, dark
+*Built with [stardust](https://github.com/adobe-rnd/stardust) — a design pipeline for AEM Edge Delivery Services. Template: [aemsites/author-kit](https://github.com/aemsites/author-kit).*
