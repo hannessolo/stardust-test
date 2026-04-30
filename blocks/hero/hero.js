@@ -64,5 +64,7 @@ export default async function init(el) {
     const bg = rows.pop();
     bg.classList.add('hero-background');
     decorateBackground(bg);
+  } else {
+    el.classList.add('hero-no-bg');
   }
 }

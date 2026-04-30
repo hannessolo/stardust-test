@@ -388,3 +388,49 @@ aem-sidekick {
     opacity: 1;
   }
 }
+
+/* ── Pfadi Schirmerturm brand overrides ── */
+:root {
+  --color-brand: #ff7f11;
+  --color-campfire: #0f0f0f;
+  --color-stone: #525252;
+  --color-mist: #999;
+  --color-summit: #f8f8f8;
+  --color-peak: #fff;
+  --font-family-heading: 'Raleway', 'Trebuchet MS', sans-serif;
+  --font-family-body: 'Roboto', 'Trebuchet MS', sans-serif;
+  --font-family: var(--font-family-heading);
+  --color-link: #ff7f11;
+  --color-shaded: var(--color-summit);
+  --color-text: var(--color-stone);
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-family-body);
+  color: var(--color-stone);
+}
+
+body.session {
+  font-family: var(--font-family-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  letter-spacing: -0.01em;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--color-link);
+}

@@ -1,0 +1,85 @@
+main .accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+main .accordion details {
+  border: 1px solid rgba(0 0 0 / 10%);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+main .accordion details[open],
+main .accordion details:hover {
+  border-color: var(--color-brand, #ff7f11);
+}
+
+main .accordion summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  font-family: var(--font-family-heading, 'Raleway', sans-serif);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--color-campfire, #0f0f0f);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+main .accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+main .accordion summary::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-brand, #ff7f11);
+  transition: transform 0.25s;
+  flex-shrink: 0;
+  margin-left: 16px;
+  line-height: 1;
+}
+
+main .accordion details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+main .accordion summary:hover {
+  background: rgba(255 127 17 / 4%);
+}
+
+main .accordion details[open] summary {
+  border-bottom: 1px solid rgba(255 127 17 / 20%);
+}
+
+main .accordion .accordion-answer {
+  padding: 20px 24px;
+  font-size: 15px;
+  color: var(--color-stone, #525252);
+  line-height: 1.7;
+  background: var(--color-summit, #f8f8f8);
+}
+
+main .accordion .accordion-answer > :first-child {
+  margin-top: 0;
+}
+
+main .accordion .accordion-answer > :last-child {
+  margin-bottom: 0;
+}
+
+main .accordion .accordion-answer a {
+  color: var(--color-brand, #ff7f11);
+  text-decoration: none;
+}
+
+main .accordion .accordion-answer a:hover {
+  text-decoration: underline;
+}

@@ -4,7 +4,7 @@ import { setColorScheme } from '../section-metadata/section-metadata.js';
 
 const { locale } = getConfig();
 
-const HEADER_PATH = '/fragments/nav/header';
+const HEADER_PATH = '/nav';
 const HEADER_ACTIONS = [
   '/tools/widgets/scheme',
   '/tools/widgets/language',
@@ -110,9 +110,14 @@ async function decorateAction(header, pattern) {
   if (pattern === '/tools/widgets/toggle') decorateNavToggle(btn);
 }
 
-function decorateMenu() {
-  // TODO: finish single menu support
-  return null;
+function decorateMenu(li) {
+  const subList = li.querySelector(':scope > ul');
+  if (!subList) return null;
+  const dropdown = document.createElement('div');
+  dropdown.className = 'dropdown-menu';
+  dropdown.append(subList);
+  li.append(dropdown);
+  return dropdown;
 }
 
 function decorateMegaMenu(li) {
@@ -140,11 +145,16 @@ function decorateNavItem(li) {
 function decorateBrandSection(section) {
   section.classList.add('brand-section');
   const brandLink = section.querySelector('a');
-  const [, text] = brandLink.childNodes;
-  const span = document.createElement('span');
-  span.className = 'brand-text';
-  span.append(text);
-  brandLink.append(span);
+  if (!brandLink) return;
+  const textNode = [...brandLink.childNodes].find(
+    (n) => n.nodeType === Node.TEXT_NODE && n.textContent.trim(),
+  );
+  if (textNode) {
+    const span = document.createElement('span');
+    span.className = 'brand-text';
+    span.append(textNode);
+    brandLink.append(span);
+  }
 }
 
 function decorateNavSection(section) {
@@ -194,4 +204,8 @@ export default async function init(el) {
   } catch (e) {
     throw Error(e);
   }
+
+  window.addEventListener('scroll', () => {
+    el.classList.toggle('scrolled', window.scrollY > 0);
+  }, { passive: true });
 }

@@ -223,3 +223,47 @@
     }
   }
 }
+
+/* ── Pfadi Schirmerturm hero styles ── */
+.hero {
+  border-bottom: 5px solid var(--color-brand, #ff7f11);
+
+  .hero-heading {
+    font-family: var(--font-family-heading, 'Raleway', sans-serif);
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 52px);
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+
+  .hero-foreground p {
+    color: rgba(255 255 255 / 65%);
+    font-size: 17px;
+  }
+}
+
+/* Text-only hero: dark gradient replaces image */
+.hero.hero-no-bg {
+  background: linear-gradient(160deg, #2d4a5f, #1a3040);
+
+  .hero-foreground {
+    background: none;
+    min-height: 260px;
+    padding: 40px 32px;
+    display: flex;
+    align-items: flex-end;
+    max-width: 960px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+/* Homepage hero: taller */
+.hero.hero-no-bg.large,
+.hero.hero-no-bg.full {
+  .hero-foreground {
+    min-height: 480px;
+    align-items: center;
+  }
+}
